@@ -1,8 +1,17 @@
 <div class="box">
     <div class="container">
      	<div class="row">
+
+					<!-- <div class="card" style="width: 18rem;">
+							<img class="card-img-top" src="..." alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">Card title</h5>
+								<p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
+								<a href="#" class="btn btn-primary">Go somewhere</a>
+							</div>
+						</div> -->
 			 
-			    <div *ngFor="let character of characters" (click)="addFavorite(character.name)" class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+			    <div *ngFor="let character of characters" class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
 					<div class="box-part text-center">
                         
@@ -12,11 +21,24 @@
 							<h4>{{ character.name}}</h4>
 						</div>
                         
-						<div class="text">
+						<!-- <div class="text">
 							<li *ngFor="let film of character.films">{{ film }}</li>
-						</div>
+						</div> -->
                         
 						<a href="#">Learn More</a>
+						
+						<div>
+							<i (click)="favCharacter(character)" 
+							class="heart fa fa-heart"
+							[ngClass]="character.isFavorite ? 'fa-heart' : 'fa-heart-o'"></i>
+
+							<i (click)="compareCharacter(character)"  
+							class="fa fa-check-circle"
+							[ngClass]="character.compare ? 'fa-check-circle' : 'fa-check-circle-o'"></i>
+
+						</div>
+
+				
                         
 					 </div>
 				</div>	 

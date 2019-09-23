@@ -27,6 +27,19 @@ export class CharacterComponent implements OnInit {
     console.log(name);
   }
 
+  // isFavorite: boolean = false;
+  favCharacter(character: any) {
+    character.isFavorite = !character.isFavorite; 
+    
+    console.log(`Favorite character ${character}`);
+  }
+
+  compareCharacter(character: any) {
+    character.compare = !character.compare; 
+
+    console.log(`Favorite character ${character.name}`);
+  }
+
   
 
 }
