@@ -3,54 +3,51 @@
 </div>
 
 <div class="box">
-    <div class="container">
-     	<div class="row">
+    <div class="container justify-content-center">
+		<div class="row" >
+			<ul class="legend">
+			<li><i class="heart fa fa-heart"></i> Favorite</li>
+			<li><i class="fa fa-check-circle fa-2x"></i> Compare - Maxium of {{ maxCompare }}</li>
+			</ul>
+		</div>
+     	<div class="row ">
+			 <div class="card compareborder" #compareEl></div>
+		</div>	
+	</div>
+</div>
 
-					<!-- <div class="card" style="width: 18rem;">
-							<img class="card-img-top" src="..." alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Card title</h5>
-								<p class="card-text">Quick sample text to create the card title and make up the body of the card's content.</p>
-								<a href="#" class="btn btn-primary">Go somewhere</a>
-							</div>
-						</div> -->
+<div class="box">
+    <div class="container">
+     	<div class="row ">
 			 
 			    <div *ngFor="let character of characters" class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
 					<div class="box-part text-center">
-                        
-                        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+						
+						<div class="fav">
+								<i (click)="favCharacter(character)" 
+									class="heart fa fa-heart"
+									[ngClass]="character.isFavorite ? 'fa-heart' : 'fa-heart-o'"></i>
+						</div>
+						
+						<i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
                         
 						<div class="title">
 							<h4>{{ character.name}}</h4>
 						</div>
-                        
-						<!-- <div class="text">
-							<li *ngFor="let film of character.films">{{ film }}</li>
-						</div> -->
-                        
-						<a href="#">Learn More</a>
 						
-						<div>
-							<i (click)="favCharacter(character)" 
-							class="heart fa fa-heart"
-							[ngClass]="character.isFavorite ? 'fa-heart' : 'fa-heart-o'"></i>
-
-							<i (click)="compareCharacter(character)"  
-							class="fa fa-check-circle"
-							[ngClass]="character.compare ? 'fa-check-circle' : 'fa-check-circle-o'"></i>
-
+						<div class="compare">
+							<div>
+								<i (click)="compareCharacter(character)"  
+								class="fa fa-check-circle fa-2x"
+								[ngClass]="character.compare ? 'fa-check-circle' : 'fa-check-circle-o'"></i>
+							</div>
 						</div>
-
 				
                         
 					 </div>
 				</div>	 
-				
-				 
-				
-				
 		
-		</div>		
+			</div>		
     </div>
 </div>

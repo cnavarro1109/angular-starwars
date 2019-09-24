@@ -80,3 +80,37 @@ a{
       }
   }
 
+
+  .hide {
+      display: none;
+  }
+
+  .show {
+      display: block;
+  }
+
+  .fav {
+      float:right;  
+      position: relative;
+      top:-4em;
+  }
+
+  .compare {
+      float: right;
+      top: 4em;
+      position: relative;
+  }
+
+  .compareborder {
+      border: none;
+  }
+
+  .legend {
+    list-style-type: none;
+  }
+
+  .deactivated {
+      color: gray;
+  }
+
+  

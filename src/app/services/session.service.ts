@@ -11,14 +11,19 @@ export class SessionService {
     var favorites = this.getFavCharacter();
     var result = [];
 
-    // Adding the existing objects into the array
     if(favorites) {
       favorites.push(character);
       result = favorites;
     } else {
       result.push(character);
     }
+
+    console.log(JSON.stringify(character));
     sessionStorage.setItem('Favorite', JSON.stringify(result));
+  }
+
+  getFavCharacter() {
+    return JSON.parse(sessionStorage.getItem("Favorite"));
   }
 
   removeFavCharacter(character: any) {
@@ -32,16 +37,39 @@ export class SessionService {
       count++;
     });
     sessionStorage.setItem('Favorite', JSON.stringify(favorites));
-
-    // const index: number = favorites.indexOf(character);
-    // if(index !== -1) {
-    //   favorites.splice(index, 1);
-    //   sessionStorage.setItem('Favorite', JSON.stringify(favorites));
-    // }
-    
+   
   }
 
-  getFavCharacter() {
-    return JSON.parse(sessionStorage.getItem("Favorite"));
+  setCompareCharacter(character: any) {
+    var compared = this.getCompareCharacter();
+    var result = [];
+
+    if(compared) {
+      compared.push(character);
+      result = compared;
+    } else {
+      result.push(character);
+    }
+
+    sessionStorage.setItem('Compare', JSON.stringify(result));
   }
+
+  getCompareCharacter() {
+    return JSON.parse(sessionStorage.getItem("Compare"));
+  }
+  
+  removeComparedCharacter(character: any) {
+    var compared = this.getCompareCharacter();
+
+    var count = 0;
+    compared.forEach(fav => {
+      if(fav.name === character.name) {
+        compared.splice(count, 1);
+      }
+      count++;
+    });
+    sessionStorage.setItem('Compare', JSON.stringify(compared));
+   
+  }
+
 }
